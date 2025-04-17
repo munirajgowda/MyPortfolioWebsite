@@ -23,7 +23,7 @@ def home(request):
         'categories': categories,
         'selected_category': selected_category
     }
-    return render(request, 'home.html', context)
+    return render(request, 'Home.html', context)
 
 
 
