@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muniraju B R</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="navbar">
+    <div class="container">
+      <a href="{% url 'home' %}" style="color: black; text-decoration: none;"><h1>Muniraju B R</h1></a>
+      <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'education' %}">Education</a>
+        <a href="{% url 'projects' %}">Projects</a>
+        <a href="{% url 'achievements' %}">Achievements</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+
+  
+  <script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down → Hide navbar
+            navbar.style.transform = "translateY(-100%)";
+        } else {
+            // Scrolling up → Show navbar
+            navbar.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>

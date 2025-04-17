@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<!-- Project Detail -->
+<section class="project-detail">
+    <div class="container">
+      <div class="breadcrumb">
+        <a style="color: black; text-decoration: none;"  href="{{ request.GET.next|default:'/' }}"> ← </a> Projects / {{ project.category }} / {{ project.title }} 
+    </div>
+
+      <img src="{{ project.thumbnail_image.url }}" alt="{{ project.title }}" class="project-banner" />
+
+      <div class="project-meta">
+        <h2>{{ project.title }}</h2>
+        <p class="project-desc">
+            {{ project.description }}
+        </p>
+        {% if project.project_link %}
+        <a href="#" class="project-link">
+          🌐 Link
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
