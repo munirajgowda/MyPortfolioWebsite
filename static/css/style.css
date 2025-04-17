@@ -272,7 +272,7 @@ footer {
 /* Achievements Section */
 .achievements {
   padding: 60px 0;
-  background: #f9f9f9;
+  background: #f9f9f9; 
   text-align: center;
 }
 
@@ -283,15 +283,15 @@ footer {
 
 .achievement-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(minmax(220px, 1fr));
   gap: 30px;
   margin-top: 30px;
 }
 
 .achievement-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
+  width: 850px;
+  height: 350px;
+  border-radius: 50px;
 }
 
 .achievement-item p {
