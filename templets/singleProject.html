@@ -9,7 +9,7 @@
         <a style="color: black; text-decoration: none;"  href="{{ request.GET.next|default:'/' }}"> ← </a> Projects / {{ project.category }} / {{ project.title }} 
     </div>
 
-      <img src="{{ project.thumbnail_image.url }}" alt="{{ project.title }}" class="project-banner" />
+      <img src="{{ project.thumbnail_image.url }}" alt="{{ project.title }}" class="project-tumbnail" />
 
       <div class="project-meta">
         <h2>{{ project.title }}</h2>
@@ -17,7 +17,7 @@
             {{ project.description }}
         </p>
         {% if project.project_link %}
-        <a href="#" class="project-link">
+        <a onclick="window.location.href='{{ project.project_link }}'" class="project-link">
           🌐 Link
         </a>
         {% endif %}

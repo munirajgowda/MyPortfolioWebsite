@@ -1,0 +1,43 @@
+/* Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 50px 0;
+  }
+  
+  .hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .intro {
+    flex: 1;
+  }
+  
+  .intro h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .intro .role {
+    font-weight: bold;
+  }
+  
+  .intro .description {
+    margin: 20px 0;
+  }
+  
+  .btn {
+    background: #111;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  .profile-photo img {
+    width: 250px;
+    border-radius: 5px;
+  }

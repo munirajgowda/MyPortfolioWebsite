@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #f7f7f7;
+  color: #111;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background: #eee;
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+header h1 {
+  display: inline-block;
+  font-weight: bold;
+}
+
+nav {
+  float: right;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
