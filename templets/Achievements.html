@@ -22,7 +22,7 @@
             {% for achievement in achievements %}
             <div class="achievement-item">
                 <img src="{{ achievement.thumbnail_image.url }}" alt="{{ achievement.title }}" />
-                <p>{{ achievement.title }}</p>
+                <p class="imgtitle">{{ achievement.title }}</p>
             </div>
             {% empty %}
             <p>No achievements available in this category.</p>

@@ -142,6 +142,30 @@ body.dark {
   width: 24px;
   height: 24px;
 }
+
 body.dark .theme-toggle svg {
   color: white;
+}
+
+.theme-icon {
+  width: 24px;
+  height: 24px;
+  transition: filter 0.3s ease;
+}
+
+body.dark .theme-icon {
+  filter: invert(1);
+}
+
+#themeIcon{
+  width: 12.5px; 
+  height: 12.5px; 
+  transition: filter 0.3s ease;  
+}
+
+body .imgtitle{
+  font-weight: bold;
+}
+body.dark .imgtitle{
+  color: #fff;
 }
