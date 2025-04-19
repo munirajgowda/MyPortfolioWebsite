@@ -1,55 +1,126 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Muniraju B R</title>
-  <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
-  <link rel="stylesheet" href="{% static 'css/Achievements.css' %}">
-  <link rel="stylesheet" href="{% static 'css/Education.css' %}">
-  <link rel="stylesheet" href="{% static 'css/Home.css' %}">
-  <link rel="stylesheet" href="{% static 'css/Projects.css' %}">
-  <link rel="stylesheet" href="{% static 'css/singleProject.css' %}">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="{% static 'css/header.css' %}">
   <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-</head>
-<body oncontextmenu="return false;">
+  <link rel="stylesheet" href="{% static 'css/Home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Education.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Projects.css' %}">
+  <link rel="stylesheet" href="{% static 'css/singleProject.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Achievements.css' %}">
 
+
+</head>
+
+<body oncontextmenu="return false;">
   <!-- Header -->
   <header id="navbar">
     <div class="container">
-      <a href="{% url 'home' %}" style="color: black; text-decoration: none;"><h1>Muniraju B R</h1></a>
+      <a href="{% url 'home' %}" style="color: black; text-decoration: none;">
+        <h1 class="logo">Muniraju B R</h1>
+      </a>
       <nav>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'education' %}">Education</a>
-        <a href="{% url 'projects' %}">Projects</a>
-        <a href="{% url 'achievements' %}">Achievements</a>
+        <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="{% url 'education' %}" class="{% if request.path == '/education/' %}active{% endif %}">Education</a>
+        <a href="{% url 'projects' %}" class="{% if request.path == '/projects/' %}active{% endif %}">Projects</a>
+        <a href="{% url 'achievements' %}" class="{% if request.path == '/achievements/' %}active{% endif %}">Achievements</a>
         <a href="#contact">Contact</a>
-        <button class="theme-toggle">🌙</button>
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle Theme">
+          <span id="themeIcon">
+            <!-- Default: moon icon (means we are in light mode) -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 
+                  0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 
+                  7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+          </span>
+        </button>
       </nav>
     </div>
   </header>
 
-
-  
+  <!-- JavaScript -->
   <script>
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    const themeIcon = document.getElementById("themeIcon");
+
+    const sunIcon = `
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 
+             6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 
+             1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 
+             12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+      </svg>
+    `;
+
+    const moonIcon = `
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 
+             0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 
+             7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+      </svg>
+    `;
+
+    // Apply saved theme on page load
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      themeIcon.innerHTML = sunIcon;
+    } else {
+      document.body.classList.remove("dark");
+      themeIcon.innerHTML = moonIcon;
+    }
+
+    // Toggle theme
+    themeToggleBtn.addEventListener("click", () => {
+      const isDark = document.body.classList.toggle("dark");
+      themeIcon.innerHTML = isDark ? sunIcon : moonIcon;
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+
+    // Scroll hide navbar
     let lastScrollTop = 0;
     const navbar = document.getElementById("navbar");
 
-    window.addEventListener("scroll", function () {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > lastScrollTop) {
-            // Scrolling down → Hide navbar
-            navbar.style.transform = "translateY(-100%)";
-        } else {
-            // Scrolling up → Show navbar
-            navbar.style.transform = "translateY(0)";
-        }
-
-        lastScrollTop = scrollTop;
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      navbar.style.transform = scrollTop > lastScrollTop ? "translateY(-100%)" : "translateY(0)";
+      lastScrollTop = scrollTop;
     });
 
-    
-</script>
+    // Project filter logic (optional)
+    document.addEventListener("DOMContentLoaded", () => {
+      const filters = document.querySelectorAll(".filter-link");
+      const projects = document.querySelectorAll(".project");
+
+      filters.forEach(filter => {
+        filter.addEventListener("click", e => {
+          e.preventDefault();
+          const selectedCategory = filter.getAttribute("data-category");
+
+          filters.forEach(f => f.classList.remove("active"));
+          filter.classList.add("active");
+
+          projects.forEach(project => {
+            const projectCategory = project.getAttribute("data-category");
+            project.style.display = (selectedCategory === "All" || projectCategory === selectedCategory) ? "block" : "none";
+          });
+        });
+      });
+    });
+  </script>

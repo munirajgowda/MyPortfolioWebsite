@@ -9,11 +9,10 @@
         <h3>Qualifications</h3>
         <div class="qualifications">
             {% for education in educations %}
-            <div class="qualification-left">
-                <p><strong>{{ education.course }}</strong><br />{{ education.year_of_graduated }}</p>
-            </div>
-            <div class="qualification-right">
-                <p><strong>{{ education.institute }}</strong><br />{{ education.location }}</p>
+            <div class="qualification-item">
+                <p><strong style="font-size: large;">{{ education.course }}</strong> ({{ education.year_of_graduated }})
+                </p>
+                <p>{{ education.institute }} - {{ education.location }}</p>
             </div>
             {% empty %}
             <p>No education records available.</p>
@@ -21,17 +20,19 @@
         </div>
 
         <h3>Skills</h3>
-        <div class="skills-grid">
-            <div>
+        <div style="align-items: center;">
+            <div class="skills-grid">
                 {% for category in skill_categories %}
-                <h4><u>{{ category.skillCat_name }}</u></h4>
-                <ul>
-                    {% for skill in category.skills_set.all %}
-                    <li>{{ skill.skill_name }}</li>
-                    {% empty %}
-                    <li>No skills available in this category.</li>
-                    {% endfor %}
-                </ul>
+                <div class="skill-category">
+                    <h4><u>{{ category.skillCat_name }}</u></h4>
+                    <ul>
+                        {% for skill in category.skills_set.all %}
+                        <li>{{ skill.skill_name }}</li>
+                        {% empty %}
+                        <li>No skills available in this category.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 {% empty %}
                 <p>No skill categories available.</p>
                 {% endfor %}
