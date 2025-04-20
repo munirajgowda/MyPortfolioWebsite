@@ -163,9 +163,18 @@ body.dark .theme-icon {
   transition: filter 0.3s ease;  
 }
 
+
 body .imgtitle{
   font-weight: bold;
 }
 body.dark .imgtitle{
+  color: #fff;
+}
+
+
+body .imgcat{
+  font-weight: normal;
+}
+body.dark .imgcat{
   color: #fff;
 }
