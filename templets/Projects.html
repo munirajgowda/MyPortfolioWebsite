@@ -29,9 +29,9 @@
         <div class="project-item">
           <img src="{{ project.thumbnail_image.url }}" alt="{{ project.title }}">
           <div class="caption">
-            <p class="imgtitle">{{ project.title }}</p><p class="imgcat"> {{ project.category }}</p>
+            <p class="imgtitle">{{ project.title }}</p><p class="imgcat"> ({{ project.category }})</p>
           </div>
-        </div>
+        </div> 
       </a>
       {% empty %}
       <p>No projects available in this category.</p>
