@@ -14,10 +14,10 @@
       <div class="project-meta">
         <h2>{{ project.title }}</h2>
         <p class="project-desc">
-            {{ project.description }}
+            {{ project.description|safe|linebreaksbr }}
         </p>
         {% if project.project_link %}
-        <a onclick="window.location.href='{{ project.project_link }}'" class="project-link">
+        <a href="{{ project.project_link }}" class="project-link">
           🌐 Link
         </a>
         {% endif %}
