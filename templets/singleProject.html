@@ -3,17 +3,18 @@
 {% block content %}
 
 <!-- Project Detail -->
-<section class="project-detail">
-    <div class="container">
+<section class="project-detail-body">
+  <div class="project-detail-body">
+    <div class="container"> 
       <div class="breadcrumb">
-        <a style="color: black; text-decoration: none;"  href="{{ request.GET.next|default:'/' }}"> ← </a> Projects / {{ project.category }} / {{ project.title }} 
+        <a class="root" style="text-decoration: none;"  href="{{ request.GET.next|default:'/' }}"> ← </a> Projects / {{ project.category }} / {{ project.title }} 
     </div>
 
-      <img src="{{ project.thumbnail_image.url }}" alt="{{ project.title }}" class="project-tumbnail" />
+      <img src="{{ project.thumbnail_image.url }}" alt="{{ project.title }}" class="project-tumbnail" style="border-radius: 10px;" />
 
       <div class="project-meta">
         <h2>{{ project.title }}</h2>
-        <p class="project-desc">
+        <p class="project-description">
             {{ project.description|safe|linebreaksbr }}
         </p>
         {% if project.project_link %}
@@ -23,5 +24,6 @@
         {% endif %}
       </div>
     </div>
+  </div>
   </section>
 {% endblock %}

@@ -22,7 +22,7 @@
     <!-- Grid -->
      <div class="projectsview">
     <div class="project-grid">
-      {% for project in projects|slice:":6" %}
+      {% for project in projects %}
       <a style="color: black; text-decoration: none;"
         href="{% url 'single_project' project.slug %}?next={{ request.path }}" class="project"
         data-category="{{ project.category.proCat_name }}">
