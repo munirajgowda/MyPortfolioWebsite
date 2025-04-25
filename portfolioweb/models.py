@@ -1,4 +1,5 @@
 from django.db import models
+from urllib.parse import urlparse
 
 class BasicInfo(models.Model):
     name = models.CharField(max_length=100, default="Muniraju B R", editable=False)  
@@ -12,6 +13,38 @@ class BasicInfo(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class ExternalLink(models.Model):
+    basic_info = models.ForeignKey(BasicInfo, on_delete=models.CASCADE, related_name='external_links')
+    name = models.CharField(max_length=100)
+    url = models.URLField()
+    icon_class = models.CharField(max_length=100, blank=True, null=True)
+
+    def set_icon_class(self):
+        domain_map = {
+            'github': 'fab fa-github',
+            'linkedin': 'fab fa-linkedin',
+            'twitter': 'fab fa-twitter',
+            'instagram': 'fab fa-instagram',
+            'facebook': 'fab fa-facebook',
+            'youtube': 'fab fa-youtube',
+            'behance': 'fab fa-behance',
+            'dribbble': 'fab fa-dribbble',
+            'codepen': 'fab fa-codepen',
+            'stack': 'fab fa-stack-overflow',
+            'replit': 'fas fa-code',
+            'site': 'fas fa-globe',
+        }
+        for keyword, icon in domain_map.items():
+            if keyword in self.url.lower() or keyword in self.name.lower():
+                return icon
+        return 'fas fa-link'  # Default
+
+    def save(self, *args, **kwargs):
+        if not self.icon_class:
+            self.icon_class = self.set_icon_class()
+        super().save(*args, **kwargs)
 
 
 class proCategory(models.Model):

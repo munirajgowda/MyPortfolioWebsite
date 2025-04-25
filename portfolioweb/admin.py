@@ -1,9 +1,25 @@
 from django.contrib import admin
 from . models import BasicInfo, Projects, Achievements, achiveCategory, proCategory
-from . models import Education, SkillCategory, Skills 
+from . models import Education, SkillCategory, Skills, ExternalLink
+
+class ExternalLinkInline(admin.TabularInline):
+    model = ExternalLink
+    extra = 1
+    fields = ['name', 'url']  # Don’t include icon_class
+    readonly_fields = []
+
+    def save_new_objects(self, formset, change):
+        # Django 5+ safe fallback, call save() on new objects
+        for obj in formset.new_objects:
+            obj.save()
+
+    def save_model(self, request, obj, form, change):
+        obj.save()  # This will trigger model save logic
+
 
 class BasicInfoAdmin(admin.ModelAdmin):
     list_display = ('name', 'designation', 'resume_link')
+    inlines = [ExternalLinkInline]
     
 class EducationAdmin(admin.ModelAdmin):
     list_display = ('course', 'institute', 'year_of_graduated')

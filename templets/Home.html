@@ -8,55 +8,70 @@
   <div class="container hero-content">
     <div class="intro">
       <h2>HI, I'M {{ basic_info.name }}</h2>
-      <p class="role">{{ basic_info.designation }}</p>
+      <p>{{ basic_info.designation }} </p>
       <p class="description">
         {{ basic_info.about }}
       </p>
-      <a class="btn" href="{{ basic_info.resume_link }}">Resume</a>
+      <a class="btn" style="border-radius: 5px;" href="{{ basic_info.resume_link }}">Resume</a>
+
+      {% if external_links %}
+      <div class="external-links" style="display: flex; gap: 15px;">
+        {% for link in external_links %}
+        <a href="{{ link.url }}" target="_blank" title="{{ link.name }}">
+          <i class="{{ link.icon_class }}" style="font-size: 24px;"></i>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
-    <div class="profile-photo">
-      <img src="{{ basic_info.profile_picture.url }}" alt="Profile Photo">
+
+
+    <div>
+      <img
+        style="width: 500px; aspect-ratio: 4 / 5; object-fit: cover; width: 350px; overflow: hidden; display: block; border-radius: 5px;"
+        src="{{ basic_info.profile_picture.url }}" alt="Profile Photo">
     </div>
   </div>
 </section>
 
 <!-- Projects Section -->
- <div class="projectsection">
-<section class="projects">
-  <div class="projectlist">
-  <h2>Recent Works</h2>
-  <!-- Filter Options -->
-  <div class="filter-options">
-    <a  data-category="All" class="filter-link {% if selected_category == 'All' %}active{% endif %}">All</a>
-    {% for category in categories %}
-    <a data-category="{{ category.proCat_name }}"
-      class="filter-link {% if selected_category == category.proCat_name %}active{% endif %}">
-      {{ category.proCat_name }}
-    </a>
-    {% endfor %}
-  </div>
-  </div>
-
-  <!-- Grid -->
-   <div class="projectsview">
-  <div class="project-grid">
-    {% for project in projects|slice:":6" %}
-    <a style="color: black; text-decoration: none;"
-      href="{% url 'single_project' project.slug %}?next={{ request.path }}" class="project"
-      data-category="{{ project.category.proCat_name }}">
-      <div class="project-item">
-        <img src="{{ project.thumbnail_image.url }}" alt="{{ project.title }}">
-        <div class="caption">
-          <p class="imgtitle">{{ project.title }}</p><p class="imgcat"> {{ project.category }}</p>
-        </div>
+<div class="projectsection">
+  <section class="projects">
+    <div class="projectlist">
+      <h2>Recent Works</h2>
+      <!-- Filter Options -->
+      <div class="filter-options">
+        <a data-category="All" class="filter-link {% if selected_category == 'All' %}active{% endif %}">All</a>
+        {% for category in categories %}
+        <a data-category="{{ category.proCat_name }}"
+          class="filter-link {% if selected_category == category.proCat_name %}active{% endif %}">
+          {{ category.proCat_name }}
+        </a>
+        {% endfor %}
       </div>
-    </a>
-    {% empty %}
-    <p>No projects available in this category.</p>
-    {% endfor %}
-  </div>
-</div>
-</section>
+    </div>
+
+    <!-- Grid -->
+    <div class="projectsview">
+      <div class="project-grid">
+        {% for project in projects|slice:":6" %}
+        <a style="color: black; text-decoration: none;"
+          href="{% url 'single_project' project.slug %}?next={{ request.path }}" class="project"
+          data-category="{{ project.category.proCat_name }}">
+          <div class="project-item">
+            <img src="{{ project.thumbnail_image.url }}" alt="{{ project.title }}">
+            <div class="caption">
+              <p class="imgtitle">{{ project.title }}</p>
+              <p class="imgcat"> {{ project.category }}</p>
+            </div>
+          </div>
+        </a>
+        {% empty %}
+        <p>No projects available in this category.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 </div>
 
 {% endblock %}

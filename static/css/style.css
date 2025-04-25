@@ -178,3 +178,10 @@ body .imgcat{
 body.dark .imgcat{
   color: #fff;
 }
+
+.external-links img {
+  transition: transform 0.3s ease;
+}
+.external-links img:hover {
+  transform: scale(1.2);
+}

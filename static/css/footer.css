@@ -1,45 +1,71 @@
 /* Contact */
 .contact {
-    background: #111;
-    color: #fff;
-    padding: 50px 0;
-  }
-  
-  .contact-wrapper {
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border: none;
-  }
-  
-  .contact-form textarea {
-    height: 100px;
-    resize: none;
-  }
-  
-  .contact-form button {
-    padding: 10px 20px;
-    border: none;
-    background: #fff;
-    color: #111;
-    cursor: pointer;
-  }
-  
-  .contact-info p {
-    margin: 10px 0;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: #111;
-    color: #fff;
-  }
+  background: #111;
+  color: #fff;
+  padding: 50px 0;
+}
+
+.contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  border: none;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+}
+
+/* Center the social media section */
+.social-media {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically if the container has a height */
+  margin-top: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center; /* Centers the social links */
+  gap: 15px; /* Space between each link */
+  align-items: center;
+}
+
+.social-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: #0073b1; /* Change color on hover */
+}
