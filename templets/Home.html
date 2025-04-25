@@ -13,16 +13,40 @@
         {{ basic_info.about }}
       </p>
       <a class="btn" style="border-radius: 5px;" href="{{ basic_info.resume_link }}">Resume</a>
+      <style>
+        .home-social-media {
+          display: flex;
+          justify-content: left;
+          align-items: left;
+          padding-top: 10px;
+          margin-top: 20px;
+          text-decoration: none;
+        }
 
-      {% if external_links %}
-      <div class="external-links" style="display: flex; gap: 15px;">
-        {% for link in external_links %}
-        <a href="{{ link.url }}" target="_blank" title="{{ link.name }}">
-          <i class="{{ link.icon_class }}" style="font-size: 24px;"></i>
-        </a>
-        {% endfor %}
+        .home-social-links {
+          display: flex;
+          justify-content: left;
+          gap: 25px;
+          align-items: left;
+          color: #121211;
+          text-decoration: none;
+        }
+        
+        body.dark .home-social-links {
+          color: #ffffff;
+        }
+      </style>
+      <div class="home-social-media">
+        {% if external_links %}
+        <div class="external-links" style="display: flex; gap: 15px;">
+          {% for link in external_links %}
+          <a class="home-social-links" href="{{ link.url }}" target="_blank" title="{{ link.name }}">
+            <i class="{{ link.icon_class }}" style="font-size: 20px;"></i>
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
-      {% endif %}
     </div>
 
 

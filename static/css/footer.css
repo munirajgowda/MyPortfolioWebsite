@@ -45,27 +45,17 @@ footer {
 }
 
 /* Center the social media section */
-.social-media {
+.footer-social-media {
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically if the container has a height */
+  justify-content: center;
+  align-items: center; 
   margin-top: 20px;
 }
 
-.social-links {
+.footer-social-links {
   display: flex;
-  justify-content: center; /* Centers the social links */
-  gap: 15px; /* Space between each link */
+  justify-content: center; 
+  gap: 20px;
   align-items: center;
-}
-
-.social-link {
-  text-decoration: none;
-  font-size: 16px;
   color: #fff;
-  transition: color 0.3s;
-}
-
-.social-link:hover {
-  color: #0073b1; /* Change color on hover */
 }

@@ -4,12 +4,16 @@ from portfolioweb.models import Achievements, achiveCategory
 from portfolioweb.models import Education, SkillCategory, Skills 
 from urllib.parse import unquote
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
+
+
 
 
 def home(request):
     basic_info = BasicInfo.objects.first()  
     selected_category = unquote(request.GET.get('category', 'All'))
     external_links = ExternalLink.objects.filter(basic_info=basic_info)
+
 
 
     if selected_category == "All" or not selected_category:

@@ -19,9 +19,8 @@ class ExternalLink(models.Model):
     basic_info = models.ForeignKey(BasicInfo, on_delete=models.CASCADE, related_name='external_links')
     name = models.CharField(max_length=100)
     url = models.URLField()
-    icon_class = models.CharField(max_length=100, blank=True, null=True)
 
-    def set_icon_class(self):
+    def icon_class(self):
         domain_map = {
             'github': 'fab fa-github',
             'linkedin': 'fab fa-linkedin',
@@ -41,10 +40,6 @@ class ExternalLink(models.Model):
                 return icon
         return 'fas fa-link'  # Default
 
-    def save(self, *args, **kwargs):
-        if not self.icon_class:
-            self.icon_class = self.set_icon_class()
-        super().save(*args, **kwargs)
 
 
 class proCategory(models.Model):
