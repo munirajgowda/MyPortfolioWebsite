@@ -7,6 +7,17 @@ header {
   align-items: center;
 }
 
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  background-color: white; /* Ensure visibility */
+  z-index: 1000; /* Keep it above other elements */
+}
+
+
+
 header h1 {
   display: inline-block;
   font-weight: bold;

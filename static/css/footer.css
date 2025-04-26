@@ -48,13 +48,13 @@ footer {
 .footer-social-media {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   margin-top: 20px;
 }
 
 .footer-social-links {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   gap: 20px;
   align-items: center;
   color: #fff;

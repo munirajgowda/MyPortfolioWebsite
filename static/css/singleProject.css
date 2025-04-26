@@ -1,82 +1,76 @@
-/* Project Detail Page */
+/* Light mode styles */
 .project-detail-body {
-    padding: 60px 0;
-    background-color: #f4f4f4;
-  }
-  
-  .project-detail-body .back-link {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .project-tumbnail {
-    padding: 1%;
-    aspect-ratio: 5 / 4;
-    object-fit: cover;
-    width: 100%;
+  padding: 60px 0;
+  background-color: #f4f4f4;
+}
+
+.project-thumbnail-wrapper {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1%;
   box-sizing: border-box;
-    overflow: hidden;
-    border-radius: 5px;
-  }
-  
-  .project-meta {
-    margin-top: 30px;
-  }
-  
-  .project-meta h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .project-desc {
-    font-size: 15px;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
-  .project-link {
-    
-    display: inline-block;
-    background: #222;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px;
-  }
+}
 
-  .project-link.dark {
-    
-    display: inline-block;
-    background: #fff;
-    color: #222;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  
+.project-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 5px;
+}
 
-  .project-detail-body.dark {
-    background: #121212;
-    color: #fff;
-  }
+.project-meta {
+  margin-top: 30px;
+}
 
-  .root{
-    text-decoration: none;
-    color: #121212;
-  }
+.project-meta h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #121212;
+}
 
-  .root.dark {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .project-description.dark {
-    color: #f4f4f4;
-  }
-  .project-description {
-    color: #121212;
-  }
+.project-description {
+  font-size: 15px;
+  color: #121212;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.project-link {
+  display: inline-block;
+  background: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.root {
+  text-decoration: none;
+  color: #121212;
+}
+.arrow-icon {
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+  margin-right: 8px;
+  transform: translateY(2px); /* align vertically if needed */
+}
+
+/* Dark mode styles */
+.dark .project-detail-body {
+  background-color: #121212;
+}
+
+.dark .project-meta h2,
+.dark .project-description,
+.dark .root {
+  color: #f4f4f4;
+}
+
+.dark .project-link {
+  background: #fff;
+  color: #222;
+}
