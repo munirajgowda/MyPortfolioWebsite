@@ -1,7 +1,15 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
+<style>
+    body .course-completed-date {
+        font-weight: normal;
+    }
 
+    body.dark .course-completed-date {
+        color: #fff;
+    }
+</style>
 <!-- Achievements Section -->
 <section class="achievements">
     <div class="container">
@@ -23,8 +31,17 @@
             <div class="achievement-item">
                 <img src="{{ achievement.thumbnail_image.url }}" alt="{{ achievement.title }}" />
                 <div class="caption">
-                    <p class="imgtitle">{{ achievement.title }}</p><p class="imgcat"> ({{ achievement.category }})</p>
-                  </div>
+                    <p class="imgtitle">{{ achievement.title }}</p>
+                    <p class="imgcat"> ({{ achievement.category }})</p>
+                </div>
+                <div class="caption">
+                    <p class="course-completed-date" style="text-align: left;">{{ achievement.completed_date }}</p>
+                    {% if achievement.credit_link %}
+                    <a href="{{ achievement.credit_link }}" class="credit_link" target="_blank">
+                        Verify
+                    </a>
+                    {% endif %}
+                </div>
             </div>
             {% empty %}
             <p>No achievements available in this category.</p>

@@ -27,8 +27,8 @@
   {% if external_links %}
   <div class="external-links" style="display: flex; gap: 15px;">
     {% for link in external_links %}
-      <a class="footer-social-links" href="{{ link.url }}" target="_blank" title="{{ link.name }}">
-        <i class="{{ link.icon_class }}" style="font-size: 24px;"></i>
+      <a style="text-decoration: none;" class="footer-social-links" href="{{ link.url }}" target="_blank" title="{{ link.name }}">
+        <i class="{{ link.icon_class }}" style="font-size: 20px;"></i>
       </a>
     {% endfor %}
   </div> 
@@ -37,6 +37,22 @@
 <br>
   <p>© Muniraju B R. All right reserved</p>
 </footer>
+
+<script>
+  // Save the scroll position before the page unloads
+  window.addEventListener('beforeunload', function() {
+    localStorage.setItem('scrollPosition', window.scrollY);
+  });
+
+  // After page loads, restore the scroll position
+  window.addEventListener('load', function() {
+    const scrollPosition = localStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition));
+      localStorage.removeItem('scrollPosition'); // remove so it doesn't stick forever
+    }
+  });
+</script>
 
 </body>
 </html>

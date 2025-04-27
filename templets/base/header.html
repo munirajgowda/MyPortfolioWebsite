@@ -71,24 +71,5 @@
       themeIcon.src = isDark ? sunIconPath : moonIconPath;
       localStorage.setItem("theme", isDark ? "dark" : "light");
     });
-
-    // Hide navbar on scroll down, show on scroll up
-    let lastScroll = window.scrollY;
-    const navbar = document.getElementById("navbar");
-
-    window.addEventListener("scroll", () => {
-      const currentScroll = window.scrollY;
-
-      if (currentScroll > lastScroll) {
-        // Scrolling down, hide navbar
-        navbar.style.transform = "translateY(-100%)";
-      } else {
-        // Scrolling up, show navbar immediately
-        navbar.style.transform = "translateY(0)";
-      }
-
-      lastScroll = currentScroll;
-    });
-
-
+    
   </script>

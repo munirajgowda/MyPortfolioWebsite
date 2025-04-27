@@ -6,18 +6,20 @@
 <div class="projectsection">
   <section class="projects">
     <div class="projectlist">
-    <h2>Recent Works</h2>
+    <h2>Works</h2>
     <!-- Filter Options -->
     <div class="filter-options">
-      <a  data-category="All" class="filter-link {% if selected_category == 'All' %}active{% endif %}">All</a>
+      <a href="?category=All" class="{% if selected_category == 'All' %}active{% endif %}">All</a>
       {% for category in categories %}
-      <a data-category="{{ category.proCat_name }}"
-        class="filter-link {% if selected_category == category.proCat_name %}active{% endif %}">
-        {{ category.proCat_name }}
+      <a href="?category={{ category.proCat_name }}"
+          class="{% if selected_category == category.proCat_name %}active{% endif %}">
+          {{ category.proCat_name }}
       </a>
       {% endfor %}
     </div>
     </div>
+    
+
   
     <!-- Grid -->
      <div class="projectsview">

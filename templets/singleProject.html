@@ -1,6 +1,25 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
+<style>
+  .project-thumbnail-wrapper {
+    width: 90%; /* reduced from 50% */
+    aspect-ratio: 3 / 2;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1%;
+    box-sizing: border-box;
+    margin: 0 auto; /* center align */
+  }
+  
+  .project-thumbnail {
+    width: 100%; /* make it full inside wrapper */
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
+  }
+</style>
 <!-- Project Detail -->
 <section class="project-detail-body">
   <div class="container"> 
@@ -20,7 +39,7 @@
       <p class="project-description">
         {{ project.description|safe|linebreaksbr }}
       </p>
-
+ 
       {% if project.project_link %}
   <a href="{{ project.project_link }}" class="project-link" target="_blank">
     <img src="{{ project_favicon }}" alt="Favicon" style="vertical-align: middle; height: 20px; margin-right: 8px;">

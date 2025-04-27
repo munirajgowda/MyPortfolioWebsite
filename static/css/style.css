@@ -179,6 +179,22 @@ body.dark .imgcat{
   color: #fff;
 }
 
+body .course-completed-date{
+  font-weight: normal;
+}
+body.dark .course-completed-date{
+  color: #fff;
+}
+
+body .credit_link{
+  font-weight: normal;
+  text-decoration: none;
+}
+body.dark .credit_link{
+  color: #fff;
+}
+
+
 .external-links img {
   transition: transform 0.3s ease;
 }

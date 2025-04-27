@@ -65,11 +65,11 @@
       <h2>Recent Works</h2>
       <!-- Filter Options -->
       <div class="filter-options">
-        <a data-category="All" class="filter-link {% if selected_category == 'All' %}active{% endif %}">All</a>
+        <a href="?category=All" class="{% if selected_category == 'All' %}active{% endif %}">All</a>
         {% for category in categories %}
-        <a data-category="{{ category.proCat_name }}"
-          class="filter-link {% if selected_category == category.proCat_name %}active{% endif %}">
-          {{ category.proCat_name }}
+        <a href="?category={{ category.proCat_name }}"
+            class="{% if selected_category == category.proCat_name %}active{% endif %}">
+            {{ category.proCat_name }}
         </a>
         {% endfor %}
       </div>
@@ -86,7 +86,6 @@
             <img src="{{ project.thumbnail_image.url }}" alt="{{ project.title }}">
             <div class="caption">
               <p class="imgtitle">{{ project.title }}</p>
-              <p class="imgcat"> {{ project.category }}</p>
             </div>
           </div>
         </a>
@@ -97,5 +96,6 @@
     </div>
   </section>
 </div>
+
 
 {% endblock %}
